@@ -1,1 +1,1 @@
-# hahu-hiking
+# Hahu-hiking
