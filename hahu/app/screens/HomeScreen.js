@@ -12,13 +12,21 @@ function HomeScreen() {
       <Text style={styles.title}>Trip</Text>
 
       <View style={styles.trip_container}>
-        <Card style={{ width: "48%", height: 220 }} />
-        <Card style={{ width: "48%", height: 220 }} />
+        <Card
+          style={{ width: "48%", height: 220, padding: 7, borderRadius: 16 }}
+        />
+        <Card
+          style={{ width: "48%", height: 220, padding: 7, borderRadius: 16 }}
+        />
       </View>
 
       <View style={styles.trip_container}>
-        <Card style={{ width: "48%", height: 220 }} />
-        <Card style={{ width: "48%", height: 220 }} />
+        <Card
+          style={{ width: "48%", height: 220, padding: 7, borderRadius: 16 }}
+        />
+        <Card
+          style={{ width: "48%", height: 220, padding: 7, borderRadius: 16 }}
+        />
       </View>
     </Screen>
   );
