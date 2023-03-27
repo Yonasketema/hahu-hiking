@@ -2,9 +2,9 @@ import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-function Card({ title, subTitle, image }) {
+function Card({ style }) {
   return (
-    <View style={styles.card}>
+    <View style={[styles.card, style]}>
       <Image
         style={styles.img}
         source={{
