@@ -12,46 +12,6 @@ function HomeScreen() {
   return (
     <Screen>
       <Text style={styles.title}>plan your weekly Hiking</Text>
-      <View
-        style={{
-          flexDirection: "row",
-          width: "100%",
-
-          backgroundColor: "#fff",
-          padding: 12,
-        }}
-      >
-        <AntDesign name="search1" size={24} color="#121" />
-        <TextInput
-          placeholder="Search destination"
-          style={{ marginHorizontal: 10 }}
-        />
-      </View>
-
-      <View
-        style={{
-          flexDirection: "row",
-          marginVertical: 14,
-          width: "100%",
-        }}
-      >
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          <View style={styles.box_catagory}>
-            <Foundation name="mountains" size={27} color="#3777" />
-            <Text style={styles.text_catagory}>mountains</Text>
-          </View>
-
-          <View style={styles.box_catagory}>
-            <Foundation name="mountains" size={27} color="#3777" />
-            <Text style={styles.text_catagory}>mountains</Text>
-          </View>
-
-          <View style={styles.box_catagory}>
-            <Foundation name="mountains" size={27} color="#3777" />
-            <Text style={styles.text_catagory}>mountains</Text>
-          </View>
-        </ScrollView>
-      </View>
 
       <View
         style={{
