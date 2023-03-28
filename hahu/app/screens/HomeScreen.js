@@ -12,6 +12,21 @@ function HomeScreen() {
   return (
     <Screen>
       <Text style={styles.title}>plan your weekly Hiking</Text>
+      <View
+        style={{
+          flexDirection: "row",
+          width: "100%",
+
+          backgroundColor: "#fff",
+          padding: 12,
+        }}
+      >
+        <AntDesign name="search1" size={24} color="#121" />
+        <TextInput
+          placeholder="Search destination"
+          style={{ marginHorizontal: 10 }}
+        />
+      </View>
 
       <View
         style={{
