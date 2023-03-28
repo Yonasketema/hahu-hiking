@@ -31,6 +31,31 @@ function HomeScreen() {
       <View
         style={{
           flexDirection: "row",
+          marginVertical: 14,
+          width: "100%",
+        }}
+      >
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <View style={styles.box_catagory}>
+            <Foundation name="mountains" size={27} color="#3777" />
+            <Text style={styles.text_catagory}>mountains</Text>
+          </View>
+
+          <View style={styles.box_catagory}>
+            <Foundation name="mountains" size={27} color="#3777" />
+            <Text style={styles.text_catagory}>mountains</Text>
+          </View>
+
+          <View style={styles.box_catagory}>
+            <Foundation name="mountains" size={27} color="#3777" />
+            <Text style={styles.text_catagory}>mountains</Text>
+          </View>
+        </ScrollView>
+      </View>
+
+      <View
+        style={{
+          flexDirection: "row",
           marginBottom: 14,
           width: "100%",
         }}
