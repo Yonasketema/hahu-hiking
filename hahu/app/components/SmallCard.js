@@ -2,23 +2,25 @@ import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-function SmallCard(props) {
+function SmallCard({ imgurl, title, subTitle, rating }) {
   return (
     <View style={styles.container}>
       <Image
         style={styles.img}
         source={{
-          uri: "http://t2.gstatic.com/licensed-image?q=tbn:ANd9GcT26oCRGUfr9aaKIqcAHs1K6czjMHNb3f1d8e_2cCT66twqAVd7enzUnK2EKTmaJXn9",
+          uri: imgurl,
         }}
       />
       <View style={styles.description}>
-        <Text style={styles.subTitle}>555 $</Text>
-        <Text style={styles.titleText}>Lalibela</Text>
+        <Text style={styles.titleText} numberOfLines={2} ellipsizeMode="tail">
+          {title}
+        </Text>
+        <Text style={styles.subTitle}> {subTitle}</Text>
       </View>
 
       <View style={styles.ratebox}>
         <AntDesign name="star" size={12} color="#ffcd3c" />
-        <Text style={styles.rate_text}>4.8</Text>
+        <Text style={styles.rate_text}>{rating}</Text>
       </View>
     </View>
   );
@@ -33,13 +35,16 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     backgroundColor: "#fff",
     overflow: "hidden",
+    marginRight: 12,
+    marginVertical: 10,
   },
   description: {
     height: 50,
-    width: "90%",
-    borderTopRightRadius: 75,
+    width: "100%",
     backgroundColor: "#fff",
     position: "absolute",
+    borderBottomRightRadius: 25,
+
     bottom: 0,
     padding: 5,
   },
@@ -62,9 +67,23 @@ const styles = StyleSheet.create({
     left: 10,
   },
   titleText: {
-    fontWeight: "bold",
-    fontSize: 15,
+    fontWeight: "500",
+    fontSize: 13,
     textTransform: "capitalize",
+    color: "#444",
+  },
+  subTitle: {
+    fontWeight: "bold",
+    position: "absolute",
+    right: 10,
+    bottom: 25,
+    color: "#121",
+    backgroundColor: "#fff",
+    zIndex: -11,
+    padding: 7,
+    minWidth: 50,
+    height: 50,
+    borderRadius: 35,
   },
   rate_text: {
     fontWeight: "bold",
