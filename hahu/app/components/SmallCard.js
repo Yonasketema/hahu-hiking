@@ -15,7 +15,7 @@ function SmallCard({ imgurl, title, subTitle, rating }) {
         <Text style={styles.titleText} numberOfLines={2} ellipsizeMode="tail">
           {title}
         </Text>
-        <Text style={styles.subTitle}> {subTitle}</Text>
+        <Text style={styles.subTitle}>{subTitle}</Text>
       </View>
 
       <View style={styles.ratebox}>
@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
   container: {
     width: "48%",
     height: 220,
-    borderRadius: 16,
-    borderColor: "#9777",
+    borderRadius: 1,
+    borderColor: "#fff",
     borderWidth: 2,
     backgroundColor: "#fff",
     overflow: "hidden",
@@ -43,15 +43,14 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "#fff",
     position: "absolute",
-    borderBottomRightRadius: 25,
-
+    zIndex: 11,
     bottom: 0,
     padding: 5,
   },
   img: {
     width: "100%",
     height: "100%",
-    borderRadius: 16,
+    borderRadius: 3,
     marginBottom: 10,
   },
   ratebox: {
@@ -77,9 +76,9 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 10,
     bottom: 25,
-    color: "#121",
-    backgroundColor: "#fff",
-    zIndex: -11,
+    color: "#fff",
+    backgroundColor: "#000",
+
     padding: 7,
     minWidth: 50,
     height: 50,
