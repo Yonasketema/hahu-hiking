@@ -1,21 +1,11 @@
 import React from "react";
-import {
-  FlatList,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import { FlatList, StyleSheet, Text } from "react-native";
 import Card from "../components/Card";
 import Screen from "../components/Screen";
 
-import { Foundation } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
-
-import { AntDesign } from "@expo/vector-icons";
 import SmallCard from "../components/SmallCard";
+import SearchBar from "../components/SearchBar";
+import SearchTagTipBox from "../components/SearchTagTipBox";
 
 const list = [
   {
@@ -77,47 +67,13 @@ function HomeScreen() {
   return (
     <Screen>
       <Text style={styles.title}>plan your weekly Hiking</Text>
-      <View
-        style={{
-          flexDirection: "row",
-          width: "100%",
-          backgroundColor: "#fff",
-          padding: 12,
-        }}
-      >
-        <AntDesign name="search1" size={24} color="#121" />
-        <TextInput
-          placeholder="Search destination"
-          style={{ marginHorizontal: 10 }}
-        />
-      </View>
 
-      <View
-        style={{
-          flexDirection: "row",
-          marginVertical: 14,
-          width: "100%",
-        }}
-      >
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          <View style={styles.box_catagory}>
-            <Foundation name="mountains" size={27} color="#3777" />
-            <Text style={styles.text_catagory}>mountains</Text>
-          </View>
+      <SearchBar />
 
-          <View style={styles.box_catagory}>
-            <MaterialCommunityIcons name="forest" size={27} color="#3777" />
-            <Text style={styles.text_catagory}>forest</Text>
-          </View>
-
-          <View style={styles.box_catagory}>
-            <MaterialIcons name="location-city" size={27} color="#3777" />
-            <Text style={styles.text_catagory}>Citys</Text>
-          </View>
-        </ScrollView>
-      </View>
+      <SearchTagTipBox />
 
       <FlatList
+        contentContainerStyle={{ marginLeft: 16 }}
         horizontal
         showsHorizontalScrollIndicator={false}
         data={hilist}
@@ -135,6 +91,7 @@ function HomeScreen() {
       <Text style={styles.title}>Trip</Text>
 
       <FlatList
+        contentContainerStyle={{ margin: 14 }}
         numColumns={2}
         data={list}
         keyExtractor={(item) => item.rate}
@@ -152,24 +109,6 @@ function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  box_catagory: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingHorizontal: 12,
-    backgroundColor: "#fff",
-    maxWidth: 130,
-    gap: 9,
-    height: 35,
-    marginRight: 12,
-    elevation: 3,
-  },
-  text_catagory: {
-    fontSize: 15,
-    fontWeight: "600",
-    textTransform: "capitalize",
-    color: "#444",
-  },
-
   title: {
     fontSize: 23,
     fontWeight: "bold",
