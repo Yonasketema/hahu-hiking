@@ -2,23 +2,26 @@ import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-function Card({ style }) {
+function Card({ style, imgurl, title, subTitle, rating }) {
   return (
     <View style={[styles.card, style]}>
       <Image
         style={styles.img}
         source={{
-          uri: "http://t2.gstatic.com/licensed-image?q=tbn:ANd9GcT26oCRGUfr9aaKIqcAHs1K6czjMHNb3f1d8e_2cCT66twqAVd7enzUnK2EKTmaJXn9",
+          uri: imgurl,
         }}
       />
       <View style={styles.description}>
-        <Text style={styles.titleText}>Lalibela</Text>
-        <Text style={styles.subTitle}>55 $</Text>
+        <Text style={styles.titleText}>{title}</Text>
+        <View style={styles.info}>
+          <Text style={styles.info_title}>Addis Hiking</Text>
+          <Text style={styles.info_subTitle}>{subTitle}</Text>
+        </View>
       </View>
 
       <View style={styles.ratebox}>
-        <AntDesign name="star" size={24} color="#ffcd3c" />
-        <Text style={styles.rate_text}>4.8</Text>
+        <AntDesign name="star" size={17} color="#ffcd3c" />
+        <Text style={styles.rate_text}>{rating}</Text>
       </View>
     </View>
   );
@@ -26,16 +29,20 @@ function Card({ style }) {
 
 const styles = StyleSheet.create({
   card: {
-    padding: 12,
-    borderRadius: 16,
+    padding: 4,
+    borderRadius: 1,
     width: 221,
-    height: 277,
+    height: 290,
     backgroundColor: "#fff",
+    marginRight: 12,
+  },
+  description: {
+    paddingHorizontal: 7,
   },
   img: {
     width: "100%",
-    height: "78%",
-    borderRadius: 16,
+    height: "72%",
+    borderRadius: 1,
     marginBottom: 10,
   },
   ratebox: {
@@ -51,12 +58,30 @@ const styles = StyleSheet.create({
     left: 25,
   },
   titleText: {
-    fontWeight: "bold",
-    fontSize: 18,
+    fontWeight: "500",
+    fontSize: 15,
+
     textTransform: "capitalize",
+    marginBottom: 3,
   },
   rate_text: {
     fontWeight: "bold",
+    fontSize: 14,
+  },
+  info: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  info_title: {
+    color: "#888",
+    fontSize: 13,
+    fontWeight: "500",
+  },
+  info_subTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#000",
   },
 });
 
