@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, StyleSheet, Text } from "react-native";
+import { FlatList, ScrollView, StyleSheet, Text } from "react-native";
 import Card from "../components/Card";
 import Screen from "../components/Screen";
 
@@ -66,44 +66,48 @@ const hilist = [
 function HomeScreen() {
   return (
     <Screen>
-      <Text style={styles.title}>plan your weekly Hiking</Text>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        nestedScrollEnabled={true}
+      >
+        <Text style={styles.title}>plan your weekly Hiking</Text>
 
-      <SearchBar />
+        <SearchBar />
 
-      <SearchTagTipBox />
+        <SearchTagTipBox />
 
-      <FlatList
-        contentContainerStyle={{ marginLeft: 16 }}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        data={hilist}
-        keyExtractor={(item) => item.rate}
-        renderItem={({ item }) => (
-          <Card
-            title={item.title}
-            subTitle={item.subTitle}
-            imgurl={item.img}
-            rating={item.rate}
-          />
-        )}
-      />
-
-      <Text style={styles.title}>Trip</Text>
-
-      <FlatList
-        contentContainerStyle={{ margin: 14 }}
-        numColumns={2}
-        data={list}
-        keyExtractor={(item) => item.rate}
-        renderItem={({ item }) => (
-          <SmallCard
-            title={item.title}
-            subTitle={item.subTitle}
-            imgurl={item.img}
-            rating={item.rate}
-          />
-        )}
-      />
+        <FlatList
+          contentContainerStyle={{ marginLeft: 16 }}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={hilist}
+          keyExtractor={(item) => item.rate}
+          renderItem={({ item }) => (
+            <Card
+              title={item.title}
+              subTitle={item.subTitle}
+              imgurl={item.img}
+              rating={item.rate}
+            />
+          )}
+        />
+        <Text style={styles.title}>Trip</Text>
+        <FlatList
+          scrollEnabled={false}
+          contentContainerStyle={{ margin: 14 }}
+          numColumns={2}
+          data={list}
+          keyExtractor={(item) => item.rate}
+          renderItem={({ item }) => (
+            <SmallCard
+              title={item.title}
+              subTitle={item.subTitle}
+              imgurl={item.img}
+              rating={item.rate}
+            />
+          )}
+        />
+      </ScrollView>
     </Screen>
   );
 }
@@ -119,10 +123,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: 10,
     width: "100%",
-  },
-  home_screen: {
-    backgroundColor: "#f8f4f8",
-    flex: 1,
   },
 });
 
