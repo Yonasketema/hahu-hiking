@@ -8,11 +8,7 @@ import {
 } from "react-native";
 
 function Screen({ children }) {
-  return (
-    <SafeAreaView style={styles.screen}>
-      <ScrollView showsVerticalScrollIndicator={false}>{children}</ScrollView>
-    </SafeAreaView>
-  );
+  return <SafeAreaView style={styles.screen}>{children}</SafeAreaView>;
 }
 
 const styles = StyleSheet.create({
@@ -20,6 +16,10 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     backgroundColor: "#fcf2f1",
     flex: 1,
+  },
+  scroll_screen: {
+    flex: 1,
+    height: "100%",
   },
 });
 export default Screen;
