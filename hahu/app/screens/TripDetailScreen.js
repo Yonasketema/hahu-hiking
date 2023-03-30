@@ -11,7 +11,7 @@ function TripDetailScreen(props) {
     <Screen>
       <StatusBar translucent backgroundColor="rgba(0,0,0,.4)" />
 
-      <View style={{ height: "50%" }}>
+      <View style={{ height: "50%", elevation: 7, backgroundColor: "#FFFF" }}>
         <Image
           style={styles.image}
           source={{
@@ -23,7 +23,7 @@ function TripDetailScreen(props) {
           <View>
             <Text style={styles.title}>3 Days Omo Valley Tour</Text>
             <View style={styles.subTitle_container}>
-              <Octicons name="location" size={16} color="#888" />
+              <Octicons name="location" size={16} color="#444" />
               <Text style={styles.subTitle}>Ethiopia ,Omo Valley </Text>
             </View>
           </View>
@@ -49,14 +49,14 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 
-  subTitle: { color: "#7777" },
+  subTitle: { color: "#444" },
   subTitle_container: {
     flexDirection: "row",
     gap: 5,
     alignItems: "center",
   },
   rateK: {
-    // backgroundColor: "#1777",
+    backgroundColor: "#1777",
     padding: 10,
     flexDirection: "row",
     justifyContent: "space-between",
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     padding: 12,
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffffd0",
     position: "absolute",
     width: "86%",
     height: "20%",
