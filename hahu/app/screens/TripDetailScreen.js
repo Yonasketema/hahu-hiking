@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   StyleSheet,
   View,
@@ -7,7 +6,6 @@ import {
   Text,
   StatusBar,
   FlatList,
-  TouchableOpacity,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
@@ -61,7 +59,9 @@ function TripDetailScreen(props) {
         </View>
 
         <View style={styles.booking_btn_container}>
-          <AppButton title="Book Now" />
+          <AppButton title="Book Now">
+            <AntDesign name="arrowright" size={21} color="#fff" />
+          </AppButton>
         </View>
       </View>
     </Screen>
