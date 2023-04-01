@@ -1,10 +1,21 @@
 import React from "react";
 
-import { StyleSheet, View, Image, Text, StatusBar } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  StatusBar,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
 
 import Screen from "../components/Screen";
+import Check from "../components/Check";
+
+const list = ["snack", "Water", "Transporation", "Guide"];
 
 function TripDetailScreen(props) {
   return (
@@ -31,6 +42,44 @@ function TripDetailScreen(props) {
             <AntDesign name="star" size={17} color="#ffcd3c" />
             <Text style={styles.rate_text}>4.8</Text>
           </View>
+        </View>
+      </View>
+
+      <FlatList
+        contentContainerStyle={{ marginLeft: 16 }}
+        numColumns={2}
+        showsHorizontalScrollIndicator={false}
+        data={list}
+        keyExtractor={(item) => item}
+        renderItem={({ item }) => <Check title={item} />}
+      />
+
+      <View style={styles.booking_container}>
+        <View
+          style={{
+            width: "25%",
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 27,
+              fontWeight: "bold",
+            }}
+          >
+            799$
+          </Text>
+        </View>
+
+        <View
+          style={{
+            width: "70%",
+          }}
+        >
+          <TouchableOpacity
+            style={[styles.button, { backgroundColor: "blue" }]}
+          >
+            <Text style={styles.text}>Book</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </Screen>
@@ -76,6 +125,30 @@ const styles = StyleSheet.create({
     height: "20%",
     marginHorizontal: "7%",
     bottom: 30,
+  },
+  //
+
+  button: {
+    backgroundColor: "#121",
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 15,
+    width: "100%",
+    elevation: 7,
+  },
+  text: {
+    color: "#FFF",
+    fontSize: 18,
+    textTransform: "uppercase",
+    fontWeight: "bold",
+  },
+  booking_container: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: "5%",
+    marginVertical: 10,
   },
 });
 export default TripDetailScreen;
