@@ -117,6 +117,8 @@ const styles = StyleSheet.create({
     fontSize: 23,
     fontWeight: "bold",
     textTransform: "capitalize",
+    marginLeft: 16,
+    marginVertical: 10,
   },
   trip_container: {
     flexDirection: "row",
