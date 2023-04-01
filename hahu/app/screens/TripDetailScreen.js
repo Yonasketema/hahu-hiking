@@ -14,6 +14,7 @@ import { Octicons } from "@expo/vector-icons";
 
 import Screen from "../components/Screen";
 import Check from "../components/Check";
+import AppButton from "../components/Button";
 
 const list = ["snack", "Water", "Transporation", "Guide"];
 
@@ -55,31 +56,12 @@ function TripDetailScreen(props) {
       />
 
       <View style={styles.booking_container}>
-        <View
-          style={{
-            width: "25%",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 27,
-              fontWeight: "bold",
-            }}
-          >
-            799$
-          </Text>
+        <View style={styles.price_container}>
+          <Text style={styles.price_text}>799$</Text>
         </View>
 
-        <View
-          style={{
-            width: "70%",
-          }}
-        >
-          <TouchableOpacity
-            style={[styles.button, { backgroundColor: "blue" }]}
-          >
-            <Text style={styles.text}>Book</Text>
-          </TouchableOpacity>
+        <View style={styles.booking_btn_container}>
+          <AppButton title="Book Now" />
         </View>
       </View>
     </Screen>
@@ -97,7 +79,6 @@ const styles = StyleSheet.create({
     color: "#333",
     marginBottom: 5,
   },
-
   subTitle: { color: "#444" },
   subTitle_container: {
     flexDirection: "row",
@@ -126,29 +107,22 @@ const styles = StyleSheet.create({
     marginHorizontal: "7%",
     bottom: 30,
   },
-  //
-
-  button: {
-    backgroundColor: "#121",
-    borderRadius: 25,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 15,
-    width: "100%",
-    elevation: 7,
-  },
-  text: {
-    color: "#FFF",
-    fontSize: 18,
-    textTransform: "uppercase",
-    fontWeight: "bold",
-  },
   booking_container: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: "5%",
     marginVertical: 10,
+  },
+  price_container: {
+    width: "25%",
+  },
+  price_text: {
+    fontSize: 27,
+    fontWeight: "bold",
+  },
+  booking_btn_container: {
+    width: "70%",
   },
 });
 export default TripDetailScreen;
