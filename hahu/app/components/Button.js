@@ -1,19 +1,22 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-function AppButton({ title, onPress, color = "blue" }) {
+function AppButton({ children, title, onPress, color = "blue" }) {
   return (
     <TouchableOpacity
       style={[styles.button, { backgroundColor: color }]}
       onPress={onPress}
     >
       <Text style={styles.text}>{title}</Text>
+      {children}
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   button: {
+    flexDirection: "row",
+    gap: 15,
     backgroundColor: "#121",
     borderRadius: 25,
     justifyContent: "center",
