@@ -121,7 +121,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: "5%",
-    marginVertical: 10,
+    paddingVertical: 7,
+
+    backgroundColor: "#fff",
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    left: 0,
   },
   price_container: {
     width: "25%",
