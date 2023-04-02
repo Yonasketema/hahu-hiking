@@ -44,14 +44,23 @@ function TripDetailScreen(props) {
         </View>
       </View>
 
-      <FlatList
-        contentContainerStyle={{ marginLeft: 16 }}
-        numColumns={2}
-        showsHorizontalScrollIndicator={false}
-        data={list}
-        keyExtractor={(item) => item}
-        renderItem={({ item }) => <Check title={item} />}
-      />
+      <View
+        style={{
+          width: "100%",
+        }}
+      >
+        <FlatList
+          contentContainerStyle={{
+            marginLeft: 16,
+            alignSelf: "center",
+          }}
+          numColumns={2}
+          showsHorizontalScrollIndicator={false}
+          data={list}
+          keyExtractor={(item) => item}
+          renderItem={({ item }) => <Check title={item} />}
+        />
+      </View>
 
       <View style={styles.booking_container}>
         <View style={styles.price_container}>
