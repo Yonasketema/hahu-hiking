@@ -14,7 +14,6 @@ import { Octicons } from "@expo/vector-icons";
 import Screen from "../components/Screen";
 import Check from "../components/Check";
 import AppButton from "../components/Button";
-import Card from "../components/Card";
 
 const list = ["snack", "Water", "Transporation", "Guide"];
 
@@ -74,6 +73,7 @@ function TripDetailScreen({ navigation }) {
             }}
           >
             <FlatList
+              scrollEnabled={false}
               contentContainerStyle={{
                 marginLeft: 16,
                 alignSelf: "center",
