@@ -1,29 +1,40 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  TouchableWithoutFeedback,
+} from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
-function Card({ style, imgurl, title, subTitle, rating }) {
+function Card({ imgurl, title, subTitle, rating }) {
+  const navigate = useNavigation();
+
   return (
-    <View style={[styles.card, style]}>
-      <Image
-        style={styles.img}
-        source={{
-          uri: imgurl,
-        }}
-      />
-      <View style={styles.description}>
-        <Text style={styles.titleText}>{title}</Text>
-        <View style={styles.info}>
-          <Text style={styles.info_title}>Addis Hiking</Text>
-          <Text style={styles.info_subTitle}>{subTitle}</Text>
+    <TouchableWithoutFeedback onPress={() => navigate.navigate("TripDetail")}>
+      <View style={styles.card}>
+        <Image
+          style={styles.img}
+          source={{
+            uri: imgurl,
+          }}
+        />
+        <View style={styles.description}>
+          <Text style={styles.titleText}>{title}</Text>
+          <View style={styles.info}>
+            <Text style={styles.info_title}>Addis Hiking</Text>
+            <Text style={styles.info_subTitle}>{subTitle}</Text>
+          </View>
+        </View>
+
+        <View style={styles.ratebox}>
+          <AntDesign name="star" size={17} color="#ffcd3c" />
+          <Text style={styles.rate_text}>{rating}</Text>
         </View>
       </View>
-
-      <View style={styles.ratebox}>
-        <AntDesign name="star" size={17} color="#ffcd3c" />
-        <Text style={styles.rate_text}>{rating}</Text>
-      </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 }
 
