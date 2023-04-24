@@ -41,28 +41,6 @@ const list = [
   },
 ];
 
-const hilist = [
-  {
-    rate: 4.5,
-    title: "Hiking trip to Ensaro ",
-    subTitle: "111$",
-    img: "https://scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/336717325_881127906287086_2471953286414293879_n.jpg?stp=dst-jpg_s600x600&_nc_cat=111&ccb=1-7&_nc_sid=5cd70e&_nc_ohc=BDeXIscjqikAX_q86X3&_nc_ht=scontent.fadd2-1.fna&oh=00_AfCMSicVyIcpQYf9dsIYkm0S72ckUykmb445SemOuoM5wA&oe=64286C09",
-  },
-  {
-    rate: 4.8,
-    title: "Camping and Hiking Trip to Langano",
-    subTitle: "988$",
-    img: "https://scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/332377073_6762784677081485_4822326577945761217_n.jpg?stp=cp6_dst-jpg_p526x395&_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=3I9f3yXiGhgAX_ekrvl&_nc_ht=scontent.fadd2-1.fna&oh=00_AfCv0uR_hCJkti34X5DSk3tdzu5G6nU2sHcONcrVl44iQg&oe=642824A3",
-  },
-  {
-    rate: 4.9,
-    title: "DAY TRIP TO Wenchi Crater Lake!",
-    subTitle: "432$",
-
-    img: "https://scontent.fadd2-1.fna.fbcdn.net/v/t39.30808-6/321823370_488476400063030_7840182495189301720_n.jpg?stp=dst-jpg_s600x600&_nc_cat=104&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=VgYLL485e6UAX-0eISl&_nc_ht=scontent.fadd2-1.fna&oh=00_AfBfj3XaFMYZF94SBScmTilZNEylwuM6R807rPuLaPmCDQ&oe=64291212",
-  },
-];
-
 function HomeScreen() {
   return (
     <Screen>
@@ -76,11 +54,13 @@ function HomeScreen() {
 
         <SearchTagTipBox />
 
+        <Text style={styles.title}>weekly Hiking</Text>
+
         <FlatList
-          contentContainerStyle={{ marginLeft: 16 }}
+          contentContainerStyle={{ marginHorizontal: 16, paddingRight: 16 }}
           horizontal
           showsHorizontalScrollIndicator={false}
-          data={hilist}
+          data={list}
           keyExtractor={(item) => item.rate}
           renderItem={({ item }) => (
             <Card
@@ -91,10 +71,12 @@ function HomeScreen() {
             />
           )}
         />
+
         <Text style={styles.title}>Trip</Text>
+
         <FlatList
           scrollEnabled={false}
-          contentContainerStyle={{ margin: 14 }}
+          contentContainerStyle={{ marginHorizontal: 14 }}
           numColumns={2}
           data={list}
           keyExtractor={(item) => item.rate}
