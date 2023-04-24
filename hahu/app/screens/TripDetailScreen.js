@@ -19,7 +19,7 @@ const list = ["snack", "Water", "Transporation", "Guide"];
 
 function TripDetailScreen({ navigation }) {
   return (
-    <Screen>
+    <Screen style={styles.container}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         nestedScrollEnabled={true}
@@ -106,6 +106,9 @@ function TripDetailScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    paddingTop: 0,
+  },
   image: {
     width: "100%",
     height: "100%",
