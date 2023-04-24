@@ -7,14 +7,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 
 function SearchTagTipBox(props) {
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        marginVertical: 14,
-        width: "100%",
-        margin: 16,
-      }}
-    >
+    <View style={styles.container}>
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         <View style={styles.box_catagory}>
           <Foundation name="mountains" size={27} color="#3777" />
@@ -51,6 +44,13 @@ const styles = StyleSheet.create({
     height: 35,
     marginRight: 12,
     elevation: 3,
+  },
+  container: {
+    flexDirection: "row",
+    marginVertical: 14,
+    width: "100%",
+    marginHorizontal: 16,
+    paddingRight: 16,
   },
   text_catagory: {
     fontSize: 15,
