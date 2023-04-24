@@ -4,7 +4,7 @@ import Screen from "../components/Screen";
 
 function BookingDetailScreen({}) {
   return (
-    <Screen>
+    <Screen style={styles.container}>
       <View>
         <Text>Detail Booking</Text>
       </View>
@@ -12,6 +12,10 @@ function BookingDetailScreen({}) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 0,
+  },
+});
 
 export default BookingDetailScreen;
