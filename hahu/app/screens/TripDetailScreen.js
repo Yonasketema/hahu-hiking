@@ -27,7 +27,7 @@ function TripDetailScreen({ navigation }) {
       >
         <StatusBar translucent backgroundColor="rgba(0,0,0,.4)" />
 
-        <View style={{ height: 350, backgroundColor: "#FFFF" }}>
+        <View style={{ height: 370, backgroundColor: "#FFFF" }}>
           <Image
             style={styles.image}
             source={{
