@@ -11,6 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 
 import HomeScreen from "./app/screens/HomeScreen";
 import TripDetailScreen from "./app/screens/TripDetailScreen";
@@ -84,7 +85,15 @@ const TabNavigator = () => {
         headerShown: false,
       }}
     >
-      <Tab.Screen name="Booked" component={TripDetailScreen} />
+      <Tab.Screen
+        name="My trips"
+        component={TripDetailScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome name="calendar" size={size} color={color} />
+          ),
+        }}
+      />
       <Tab.Screen
         name="HomeBot"
         component={StackNavigator}
