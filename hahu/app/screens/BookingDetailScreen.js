@@ -12,10 +12,6 @@ function BookingDetailScreen({}) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 0,
-  },
-});
+const styles = StyleSheet.create({});
 
 export default BookingDetailScreen;
