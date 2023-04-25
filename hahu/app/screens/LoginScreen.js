@@ -2,11 +2,11 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Screen from "../components/Screen";
 
-function Login() {
+function LoginScreen() {
   return (
     <Screen style={styles.container}>
       <View>
-        <Text>Login</Text>
+        <Text>LoginScreen</Text>
       </View>
     </Screen>
   );
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default LoginScreen;
