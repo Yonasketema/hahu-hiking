@@ -10,6 +10,9 @@ import {
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 
 import Screen from "../components/Screen";
 import Check from "../components/Check";
@@ -23,7 +26,7 @@ function TripDetailScreen({ navigation }) {
       <ScrollView
         showsVerticalScrollIndicator={false}
         nestedScrollEnabled={true}
-        style={{ marginBottom: 67 }}
+        style={{ marginBottom: 60 }}
       >
         <StatusBar translucent backgroundColor="rgba(0,0,0,.4)" />
 
@@ -51,8 +54,89 @@ function TripDetailScreen({ navigation }) {
         </View>
 
         {/* des */}
-        <View style={{ marginVertical: 7, paddingHorizontal: 17 }}>
-          <Text style={{ fontSize: 16, fontWeight: "600", marginVertical: 5 }}>
+        <View
+          style={{
+            marginVertical: 7,
+            paddingHorizontal: 17,
+            marginTop: -21,
+            backgroundColor: "#fff",
+            borderRadius: 21,
+            paddingBottom: 21,
+          }}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginVertical: 15,
+            }}
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 5,
+              }}
+            >
+              <View>
+                <FontAwesome name="calendar" size={19} color="#9999" />
+              </View>
+
+              <View>
+                <Text style={{ color: "#ccff", fontSize: 10 }}>Trip Date</Text>
+                <Text style={{ color: "#777", fontSize: 12 }}>12-12-2015</Text>
+              </View>
+            </View>
+            {/* //// /////////////////////*/}
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 5,
+              }}
+            >
+              <View>
+                <AntDesign name="clockcircleo" size={19} color="#999" />
+              </View>
+
+              <View>
+                <Text style={{ color: "#ccff", fontSize: 10 }}>
+                  Meeting Time
+                </Text>
+                <Text style={{ color: "#777", fontSize: 12 }}>9PM</Text>
+              </View>
+            </View>
+            {/* ///{" /////////////////////"} */}
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 5,
+              }}
+            >
+              <View>
+                <Octicons name="location" size={19} color="#999" />
+              </View>
+
+              <View>
+                <Text style={{ color: "#ccff", fontSize: 10 }}>
+                  Meeting location
+                </Text>
+                <Text style={{ color: "#777", fontSize: 12 }}>
+                  Mexico shebela hotel
+                </Text>
+              </View>
+            </View>
+          </View>
+
+          <Text
+            style={{
+              fontSize: 16,
+              fontWeight: "bold",
+              marginVertical: 5,
+              color: "#333",
+            }}
+          >
             Description
           </Text>
 
@@ -63,7 +147,14 @@ function TripDetailScreen({ navigation }) {
             an hour.
           </Text>
 
-          <Text style={{ fontSize: 16, fontWeight: "600", marginVertical: 5 }}>
+          <Text
+            style={{
+              fontSize: 16,
+              fontWeight: "bold",
+              marginVertical: 5,
+              color: "#333",
+            }}
+          >
             Include
           </Text>
 
@@ -84,6 +175,44 @@ function TripDetailScreen({ navigation }) {
               keyExtractor={(item) => item}
               renderItem={({ item }) => <Check title={item} />}
             />
+          </View>
+          {/* //////////////////////////////////////////////////////// */}
+          <Text
+            style={{
+              fontSize: 16,
+              fontWeight: "bold",
+              marginVertical: 5,
+              color: "#333",
+            }}
+          >
+            Hosted by
+          </Text>
+
+          <View style={{ flexDirection: "row" }}>
+            <View>
+              <Image
+                style={{ height: 60, width: 70, marginRight: 10 }}
+                source={{
+                  uri: "https://picsum.photos/200",
+                }}
+              ></Image>
+            </View>
+            <View>
+              <Text
+                style={{
+                  fontSize: 14,
+                  fontWeight: "500",
+                  marginVertical: 5,
+                  color: "#555",
+                }}
+              >
+                Guzo Adwa Hiking Group
+              </Text>
+              <View style={{ flexDirection: "row", gap: 5 }}>
+                <AntDesign name="star" size={17} color="#ffcd3c" />
+                <Text style={styles.rate_text}>4.8</Text>
+              </View>
+            </View>
           </View>
         </View>
       </ScrollView>
@@ -148,13 +277,13 @@ const styles = StyleSheet.create({
     bottom: 30,
   },
   booking_container: {
+    height: 70,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: "5%",
     paddingVertical: 7,
-
-    backgroundColor: "#fff",
+    backgroundColor: "#eee",
     position: "absolute",
     bottom: 0,
     right: 0,
