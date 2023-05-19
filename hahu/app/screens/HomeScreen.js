@@ -2,7 +2,6 @@ import React from "react";
 import { FlatList, ScrollView, StyleSheet, Text } from "react-native";
 import Card from "../components/Card";
 import Screen from "../components/Screen";
-
 import SmallCard from "../components/SmallCard";
 import SearchBar from "../components/SearchBar";
 import SearchTagTipBox from "../components/SearchTagTipBox";

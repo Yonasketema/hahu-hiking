@@ -1,10 +1,5 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
-
-import {
-  NavigationContainer,
-  getFocusedRouteNameFromRoute,
-} from "@react-navigation/native";
+import { StyleSheet, TouchableWithoutFeedback } from "react-native";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useNavigation } from "@react-navigation/native";
@@ -12,12 +7,12 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
-
 import HomeScreen from "./app/screens/HomeScreen";
 import TripDetailScreen from "./app/screens/TripDetailScreen";
 import BookingDetailScreen from "./app/screens/BookingDetailScreen";
-
 import { StackActions } from "@react-navigation/native";
+import MyTripScreen from "./app/screens/MyTripScreen";
+import LoginScreen from "./app/screens/LoginScreen";
 
 const popAction = StackActions.pop(1);
 
@@ -86,20 +81,11 @@ const TabNavigator = () => {
       }}
     >
       <Tab.Screen
-        name="My trips"
-        component={TripDetailScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="calendar" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="HomeBot"
+        name="Explore"
         component={StackNavigator}
         options={({ route }) => ({
           tabBarIcon: ({ size, color }) => (
-            <MaterialIcons name="home" size={size} color={color} />
+            <MaterialIcons name="explore" size={size} color={color} />
           ),
           tabBarStyle: ((route) => {
             const routeName = getFocusedRouteNameFromRoute(route) ?? "";
@@ -111,17 +97,36 @@ const TabNavigator = () => {
           })(route),
         })}
       />
+      <Tab.Screen
+        name="My trips"
+        component={MyTripScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome name="calendar" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Account"
+        component={LoginScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="account-circle" size={size} color={color} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
 
 export default function App() {
   return (
-    <NavigationContainer>
-      {/* <StackNavigator />
-       */}
-      <TabNavigator />
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   {/* <StackNavigator />
+    //    */}
+    //   <TabNavigator />
+    // </NavigationContainer>
+    <LoginScreen />
   );
 }
 

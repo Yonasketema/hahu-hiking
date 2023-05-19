@@ -11,7 +11,7 @@ function Check({ title }) {
         gap: 3,
       }}
     >
-      <AntDesign name="check" size={16} color="#1116" />
+      <AntDesign name="check" size={16} color="red" />
       <Text style={styles.title}>{title}</Text>
     </View>
   );
@@ -19,9 +19,10 @@ function Check({ title }) {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 18,
-    fontWeight: "600",
+    fontSize: 15,
+    fontWeight: "400",
     color: "#3339",
+    textTransform: "capitalize",
     width: 140,
   },
 });

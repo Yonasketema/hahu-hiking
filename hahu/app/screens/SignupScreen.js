@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
   form_container: {
     position: "absolute",
     bottom: 25,
-
     width: "100%",
     paddingHorizontal: 20,
     alignItems: "center",
