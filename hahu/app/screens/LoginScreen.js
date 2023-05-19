@@ -4,7 +4,7 @@ import Screen from "../components/Screen";
 import AppTextInput from "../components/AppTextInput";
 import AppButton from "../components/Button";
 
-function LoginScreen() {
+function LoginScreen({ navigation }) {
   return (
     <Screen style={styles.container}>
       <View style={styles.logo_container}>
@@ -26,7 +26,7 @@ function LoginScreen() {
             textContentType="password"
           />
         </View>
-        <AppButton title="Login" />
+        <AppButton title="Login" onPress={() => navigation.navigate("Home")} />
       </View>
     </Screen>
   );
