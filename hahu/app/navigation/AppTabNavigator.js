@@ -6,6 +6,7 @@ import AccountScreen from "../screens/AccountScreen";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
+import TripNavigator from "./TripNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -22,7 +23,7 @@ const AppTabNavigator = () => {
     >
       <Tab.Screen
         name="Explore"
-        component={HomeScreen}
+        component={TripNavigator}
         options={({ route }) => ({
           tabBarIcon: ({ size, color }) => (
             <MaterialIcons name="explore" size={size} color={color} />
