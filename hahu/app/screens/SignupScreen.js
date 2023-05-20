@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import Screen from "../components/Screen";
 import AppTextInput from "../components/AppTextInput";
 import AppButton from "../components/Button";
+import routes from "../navigation/routes";
 
 function SignupScreen({ navigation }) {
   return (
@@ -36,7 +37,7 @@ function SignupScreen({ navigation }) {
         </View>
         <AppButton
           title="Create Account"
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => navigation.navigate(routes.LOGIN)}
         />
       </View>
     </Screen>

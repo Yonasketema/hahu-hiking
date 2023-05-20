@@ -1,6 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
-import HomeScreen from "../screens/HomeScreen";
 import MyTripScreen from "../screens/MyTripScreen";
 import AccountScreen from "../screens/AccountScreen";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
@@ -30,7 +29,6 @@ const AppTabNavigator = () => {
           ),
           tabBarStyle: ((route) => {
             const routeName = getFocusedRouteNameFromRoute(route) ?? "";
-            console.log(routeName);
             if (routeName === "TripDetail" || routeName === "bookingDetail") {
               return { display: "none" };
             }

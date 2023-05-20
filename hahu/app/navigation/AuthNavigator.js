@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import LoginScreen from "../screens/LoginScreen";
 import SignupScreen from "../screens/SignupScreen";
+import routes from "./routes";
 
 const Stack = createNativeStackNavigator();
 
@@ -12,8 +13,8 @@ const AuthNavigator = () => (
       headerTransparent: true,
     }}
   >
-    <Stack.Screen name="Signup" component={SignupScreen} />
-    <Stack.Screen name="Login" component={LoginScreen} />
+    <Stack.Screen name={routes.LOGIN} component={LoginScreen} />
+    <Stack.Screen name={routes.SIGNUP} component={SignupScreen} />
   </Stack.Navigator>
 );
 

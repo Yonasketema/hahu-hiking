@@ -14,6 +14,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import Screen from "../components/Screen";
 import Check from "../components/Check";
 import AppButton from "../components/Button";
+import routes from "../navigation/routes";
 
 const list = ["snack", "Water", "Transporation", "Guide"];
 
@@ -221,7 +222,7 @@ function TripDetailScreen({ navigation }) {
         <View style={styles.booking_btn_container}>
           <AppButton
             title="Book Now"
-            onPress={() => navigation.navigate("bookingDetail")}
+            onPress={() => navigation.navigate(routes.BOOKING_DETAIL)}
           >
             <AntDesign name="arrowright" size={21} color="#fff" />
           </AppButton>

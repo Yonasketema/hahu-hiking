@@ -3,11 +3,12 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
-
 import { StackActions } from "@react-navigation/native";
+
 import HomeScreen from "../screens/HomeScreen";
 import TripDetailScreen from "../screens/TripDetailScreen";
 import BookingDetailScreen from "../screens/BookingDetailScreen";
+import routes from "./routes";
 
 const popAction = StackActions.pop(1);
 
@@ -49,14 +50,17 @@ const TripNavigator = () => {
       }}
     >
       <Stack.Screen
-        name="Home"
+        name={routes.HOME}
         component={HomeScreen}
         options={{
           headerShown: false,
         }}
       />
-      <Stack.Screen name="TripDetail" component={TripDetailScreen} />
-      <Stack.Screen name="bookingDetail" component={BookingDetailScreen} />
+      <Stack.Screen name={routes.TRIP_DETAIL} component={TripDetailScreen} />
+      <Stack.Screen
+        name={routes.BOOKING_DETAIL}
+        component={BookingDetailScreen}
+      />
     </Stack.Navigator>
   );
 };
