@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Screen from "../components/Screen";
-import AppTextInput from "../components/AppTextInput";
-import AppButton from "../components/Button";
 
-function LoginScreen({ navigation }) {
+import AppButton from "../components/Button";
+import AppTextInput from "../components/AppTextInput";
+import authStorage from "../authStorage";
+import Screen from "../components/Screen";
+import { login } from "../service/api-client";
+import useAuth from "../hook/useAuth";
+
+function LoginScreen() {
+  const { setUser } = useAuth();
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <Screen style={styles.container}>
       <View style={styles.logo_container}>
@@ -16,17 +24,31 @@ function LoginScreen({ navigation }) {
             placeholder="username"
             name="username"
             autoCapitalize="none"
+            onChangeText={(username) => setUserName(username)}
           />
-          <AppTextInput
-            placeholder="Password"
-            autoCapitalize="none"
-            autoCorrect={false}
-            name="password"
-            secureTextEntry
-            textContentType="password"
-          />
+          <View>
+            <AppTextInput
+              placeholder="Password"
+              autoCapitalize="none"
+              autoCorrect={false}
+              name="password"
+              secureTextEntry
+              textContentType="password"
+              onChangeText={(password) => setPassword(password)}
+            />
+          </View>
         </View>
-        <AppButton title="Login" onPress={() => navigation.navigate("Home")} />
+        <AppButton
+          title="Login"
+          onPress={() => {
+            login(username, password)
+              .then((res) => {
+                setUser(res.data);
+                authStorage.storeTokens(JSON.stringify(res.data));
+              })
+              .catch((err) => console.log(err.message));
+          }}
+        />
       </View>
     </Screen>
   );
