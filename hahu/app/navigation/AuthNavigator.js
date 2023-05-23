@@ -13,8 +13,8 @@ const AuthNavigator = () => (
       headerTransparent: true,
     }}
   >
-    <Stack.Screen name={routes.LOGIN} component={LoginScreen} />
     <Stack.Screen name={routes.SIGNUP} component={SignupScreen} />
+    <Stack.Screen name={routes.LOGIN} component={LoginScreen} />
   </Stack.Navigator>
 );
 
