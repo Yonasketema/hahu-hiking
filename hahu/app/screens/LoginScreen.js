@@ -9,10 +9,10 @@ import { login } from "../service/api-client";
 import useAuth from "../hook/useAuth";
 
 function LoginScreen() {
-  const { setUser } = useAuth();
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
+  const { setUser, user } = useAuth();
   return (
     <Screen style={styles.container}>
       <View style={styles.logo_container}>
@@ -32,7 +32,7 @@ function LoginScreen() {
               autoCapitalize="none"
               autoCorrect={false}
               name="password"
-              secureTextEntry
+              // secureTextEntry
               textContentType="password"
               onChangeText={(password) => setPassword(password)}
             />
@@ -43,8 +43,8 @@ function LoginScreen() {
           onPress={() => {
             login(username, password)
               .then((res) => {
-                setUser(res.data);
                 authStorage.storeTokens(JSON.stringify(res.data));
+                setUser({ ...user, login: true });
               })
               .catch((err) => console.log(err.message));
           }}

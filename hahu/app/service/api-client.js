@@ -11,8 +11,4 @@ export const login = (username, password) => {
   });
 };
 
-export const user = () => {
-  return apiClient.post("/auth/user/me");
-};
-
 export default apiClient;

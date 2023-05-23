@@ -6,15 +6,29 @@ import AppTabNavigator from "./app/navigation/AppTabNavigator";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import { AuthContext } from "./app/hook/useAuth";
 import authStorage from "./app/authStorage";
+import apiClient, { me } from "./app/service/api-client";
 
 export default function App() {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({
+    login: false,
+  });
 
   const restoreTokens = async () => {
-    const tokens = await authStorage.getToken();
-    console.log(tokens);
+    let tokens = await authStorage.getToken();
     if (!tokens) return;
-    setUser(JSON.stringify(tokens));
+
+    tokens = JSON.parse(tokens);
+
+    apiClient
+      .get("/auth/users/me/", {
+        headers: {
+          Authorization: `JWT ${tokens.access}`,
+        },
+      })
+      .then((res) => {
+        setUser({ ...user, ...res.data });
+      })
+      .catch((err) => console.log("Error fetching me", err.message));
   };
 
   useEffect(() => {
