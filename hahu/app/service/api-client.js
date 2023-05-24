@@ -11,4 +11,14 @@ export const login = (username, password) => {
   });
 };
 
+export const register = (username, email, password) => {
+  console.log({ username, email, password });
+
+  return apiClient.post("/auth/users/", {
+    username,
+    password,
+    email,
+  });
+};
+
 export default apiClient;

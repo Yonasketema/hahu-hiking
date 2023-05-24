@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Screen from "../components/Screen";
 import AppTextInput from "../components/AppTextInput";
 import AppButton from "../components/Button";
 import routes from "../navigation/routes";
+import { register } from "../service/api-client";
 
 function SignupScreen({ navigation }) {
+  const [username, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <Screen style={styles.container}>
       <View style={styles.logo_container}>
@@ -17,6 +22,7 @@ function SignupScreen({ navigation }) {
             placeholder="username"
             name="username"
             autoCapitalize="none"
+            onChangeText={(username) => setUserName(username)}
           />
           <AppTextInput
             placeholder="Email"
@@ -25,6 +31,7 @@ function SignupScreen({ navigation }) {
             keyboardType="email-address"
             name="email"
             textContentType="emailAddress"
+            onChangeText={(email) => setEmail(email)}
           />
           <AppTextInput
             placeholder="Password"
@@ -33,11 +40,18 @@ function SignupScreen({ navigation }) {
             name="password"
             secureTextEntry
             textContentType="password"
+            onChangeText={(password) => setPassword(password)}
           />
         </View>
         <AppButton
           title="Create Account"
-          onPress={() => navigation.navigate(routes.LOGIN)}
+          onPress={() => {
+            register(username, email, password)
+              .then((res) => {
+                navigation.navigate(routes.LOGIN);
+              })
+              .catch((err) => console.log("ERROR create account", err));
+          }}
         />
       </View>
     </Screen>
