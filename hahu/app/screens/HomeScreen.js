@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FlatList, ScrollView, StyleSheet, Text } from "react-native";
 import Card from "../components/Card";
 import Screen from "../components/Screen";
 import SmallCard from "../components/SmallCard";
 import SearchBar from "../components/SearchBar";
 import SearchTagTipBox from "../components/SearchTagTipBox";
+import apiClient from "../service/api-client";
 
 const list = [
   {
@@ -41,6 +42,15 @@ const list = [
 ];
 
 function HomeScreen() {
+  const [trips, setTrips] = useState();
+
+  useEffect(() => {
+    apiClient
+      .get("/trip/trips")
+      .then((res) => setTrips(res.data))
+      .catch((err) => console.log("Error fetching trios", err));
+  }, []);
+
   return (
     <Screen>
       <ScrollView
@@ -77,14 +87,16 @@ function HomeScreen() {
           scrollEnabled={false}
           contentContainerStyle={{ marginHorizontal: 14 }}
           numColumns={2}
-          data={list}
+          data={trips}
           keyExtractor={(item) => item.rate}
           renderItem={({ item }) => (
             <SmallCard
               title={item.title}
-              subTitle={item.subTitle}
-              imgurl={item.img}
-              rating={item.rate}
+              subTitle={item.price}
+              imgurl={
+                "https://www.fodors.com/wp-content/uploads/2018/08/Ethiopia-Wildlife-Hero.jpg"
+              }
+              rating={"?"}
             />
           )}
         />
