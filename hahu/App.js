@@ -26,7 +26,7 @@ export default function App() {
         },
       })
       .then((res) => {
-        setUser({ ...user, ...res.data });
+        setUser({ login: true, ...res.data });
       })
       .catch((err) => console.log("Error fetching me", err.message));
   };
@@ -38,7 +38,7 @@ export default function App() {
   return (
     <AuthContext.Provider value={{ user, setUser }}>
       <NavigationContainer>
-        {user ? <AppTabNavigator /> : <AuthNavigator />}
+        {user?.login ? <AppTabNavigator /> : <AuthNavigator />}
       </NavigationContainer>
     </AuthContext.Provider>
   );

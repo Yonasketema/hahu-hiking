@@ -13,6 +13,7 @@ function LoginScreen() {
   const [password, setPassword] = useState("");
 
   const { setUser, user } = useAuth();
+
   return (
     <Screen style={styles.container}>
       <View style={styles.logo_container}>
@@ -32,7 +33,7 @@ function LoginScreen() {
               autoCapitalize="none"
               autoCorrect={false}
               name="password"
-              // secureTextEntry
+              secureTextEntry
               textContentType="password"
               onChangeText={(password) => setPassword(password)}
             />
