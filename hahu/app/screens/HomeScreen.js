@@ -93,9 +93,7 @@ function HomeScreen() {
             <SmallCard
               title={item.title}
               subTitle={item.price}
-              imgurl={
-                "https://www.fodors.com/wp-content/uploads/2018/08/Ethiopia-Wildlife-Hero.jpg"
-              }
+              imgurl={item.image_uri}
               rating={"?"}
             />
           )}
