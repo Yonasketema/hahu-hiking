@@ -47,7 +47,7 @@ function LoginScreen() {
                 authStorage.storeTokens(JSON.stringify(res.data));
                 setUser({ ...user, login: true });
               })
-              .catch((err) => console.log(err.message));
+              .catch((err) => console.log("ERROR login", err.message));
           }}
         />
       </View>
