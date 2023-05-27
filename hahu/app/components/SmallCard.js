@@ -1,28 +1,36 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  TouchableWithoutFeedback,
+} from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-function SmallCard({ imgurl, title, subTitle, rating }) {
+function SmallCard({ imgurl, title, subTitle, rating, onPress }) {
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.img}
-        source={{
-          uri: imgurl,
-        }}
-      />
-      <View style={styles.description}>
-        <Text style={styles.titleText} numberOfLines={2} ellipsizeMode="tail">
-          {title}
-        </Text>
-        <Text style={styles.subTitle}>{subTitle}</Text>
-      </View>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={styles.container}>
+        <Image
+          style={styles.img}
+          source={{
+            uri: imgurl,
+          }}
+        />
+        <View style={styles.description}>
+          <Text style={styles.titleText} numberOfLines={2} ellipsizeMode="tail">
+            {title}
+          </Text>
+          <Text style={styles.subTitle}>{subTitle}</Text>
+        </View>
 
-      <View style={styles.ratebox}>
-        <AntDesign name="star" size={12} color="#ffcd3c" />
-        <Text style={styles.rate_text}>{rating}</Text>
+        <View style={styles.ratebox}>
+          <AntDesign name="star" size={12} color="#ffcd3c" />
+          <Text style={styles.rate_text}>{rating}</Text>
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 }
 

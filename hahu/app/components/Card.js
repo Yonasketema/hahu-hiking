@@ -7,16 +7,10 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
-import routes from "../navigation/routes";
 
-function Card({ imgurl, title, subTitle, rating }) {
-  const navigate = useNavigation();
-
+function Card({ imgurl, title, subTitle, rating, onPress }) {
   return (
-    <TouchableWithoutFeedback
-      onPress={() => navigate.navigate(routes.TRIP_DETAIL)}
-    >
+    <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.card}>
         <Image
           style={styles.img}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -15,10 +15,22 @@ import Screen from "../components/Screen";
 import Check from "../components/Check";
 import AppButton from "../components/Button";
 import routes from "../navigation/routes";
+import apiClient from "../service/api-client";
 
 const list = ["snack", "Water", "Transporation", "Guide"];
 
-function TripDetailScreen({ navigation }) {
+function TripDetailScreen({ navigation, route }) {
+  const [trip, setTrip] = useState();
+
+  const { id } = route.params;
+
+  useEffect(() => {
+    apiClient
+      .get(`/api/trips/${id}`)
+      .then((res) => setTrip(res.data))
+      .catch((err) => console.log("Error fetching trip_detail", err));
+  });
+
   return (
     <Screen style={styles.container}>
       <ScrollView
@@ -32,13 +44,15 @@ function TripDetailScreen({ navigation }) {
           <Image
             style={styles.image}
             source={{
-              uri: "https://d2g6byanrj0o4m.cloudfront.net/images/49031/ethiopian_children.jpg",
+              uri: trip?.image_uri,
             }}
           ></Image>
 
           <View style={styles.trip_info}>
             <View>
-              <Text style={styles.title}>3 Days Omo Valley Tour</Text>
+              <Text style={styles.title} numberOfLines={2}>
+                {trip?.title}
+              </Text>
               <View style={styles.subTitle_container}>
                 <Octicons name="location" size={16} color="#444" />
                 <Text style={styles.subTitle}>Ethiopia ,Omo Valley </Text>
@@ -138,12 +152,7 @@ function TripDetailScreen({ navigation }) {
             Description
           </Text>
 
-          <Text style={{ color: "#999" }}>
-            They had to maintain programs with millions of lines of code. Before
-            they could test new changes, they had to compile the code into a
-            runnable form, a process which at the time took the better part of
-            an hour.
-          </Text>
+          <Text style={{ color: "#999" }}>{trip?.description}</Text>
 
           <Text
             style={{

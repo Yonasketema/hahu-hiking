@@ -6,8 +6,9 @@ import SmallCard from "../components/SmallCard";
 import SearchBar from "../components/SearchBar";
 import SearchTagTipBox from "../components/SearchTagTipBox";
 import apiClient from "../service/api-client";
+import routes from "../navigation/routes";
 
-function HomeScreen() {
+function HomeScreen({ navigation }) {
   const [trips, setTrips] = useState();
   const [weeklyhikes, setWeeklyHikes] = useState();
 
@@ -67,6 +68,11 @@ function HomeScreen() {
               subTitle={item.price}
               imgurl={item.image_uri}
               rating={"?"}
+              onPress={() =>
+                navigation.navigate(routes.TRIP_DETAIL, {
+                  id: item.id,
+                })
+              }
             />
           )}
         />
