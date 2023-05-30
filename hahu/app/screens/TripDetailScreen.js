@@ -5,19 +5,14 @@ import {
   Image,
   Text,
   StatusBar,
-  FlatList,
   ScrollView,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
-import { FontAwesome } from "@expo/vector-icons";
 import Screen from "../components/Screen";
-import Check from "../components/Check";
 import AppButton from "../components/Button";
 import routes from "../navigation/routes";
 import apiClient from "../service/api-client";
-
-const list = ["snack", "Water", "Transporation", "Guide"];
 
 function TripDetailScreen({ navigation, route }) {
   const [trip, setTrip] = useState();
@@ -29,7 +24,7 @@ function TripDetailScreen({ navigation, route }) {
       .get(`/api/trips/${id}`)
       .then((res) => setTrip(res.data))
       .catch((err) => console.log("Error fetching trip_detail", err));
-  });
+  }, []);
 
   return (
     <Screen style={styles.container}>
@@ -58,10 +53,6 @@ function TripDetailScreen({ navigation, route }) {
                 <Text style={styles.subTitle}>Ethiopia ,Omo Valley </Text>
               </View>
             </View>
-            <View style={styles.rateK}>
-              <AntDesign name="star" size={17} color="#ffcd3c" />
-              <Text style={styles.rate_text}>4.8</Text>
-            </View>
           </View>
         </View>
 
@@ -76,76 +67,11 @@ function TripDetailScreen({ navigation, route }) {
             paddingBottom: 21,
           }}
         >
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginVertical: 15,
-            }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 5,
-              }}
-            >
-              <View>
-                <FontAwesome name="calendar" size={19} color="#9999" />
-              </View>
-
-              <View>
-                <Text style={{ color: "#ccff", fontSize: 10 }}>Trip Date</Text>
-                <Text style={{ color: "#777", fontSize: 12 }}>12-12-2015</Text>
-              </View>
-            </View>
-            {/* //// /////////////////////*/}
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 5,
-              }}
-            >
-              <View>
-                <AntDesign name="clockcircleo" size={19} color="#999" />
-              </View>
-
-              <View>
-                <Text style={{ color: "#ccff", fontSize: 10 }}>
-                  Meeting Time
-                </Text>
-                <Text style={{ color: "#777", fontSize: 12 }}>9PM</Text>
-              </View>
-            </View>
-            {/* ///{" /////////////////////"} */}
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 5,
-              }}
-            >
-              <View>
-                <Octicons name="location" size={19} color="#999" />
-              </View>
-
-              <View>
-                <Text style={{ color: "#ccff", fontSize: 10 }}>
-                  Meeting location
-                </Text>
-                <Text style={{ color: "#777", fontSize: 12 }}>
-                  Mexico shebela hotel
-                </Text>
-              </View>
-            </View>
-          </View>
-
           <Text
             style={{
               fontSize: 16,
               fontWeight: "bold",
-              marginVertical: 5,
+              marginVertical: 11,
               color: "#333",
             }}
           >
@@ -158,37 +84,7 @@ function TripDetailScreen({ navigation, route }) {
             style={{
               fontSize: 16,
               fontWeight: "bold",
-              marginVertical: 5,
-              color: "#333",
-            }}
-          >
-            Include
-          </Text>
-
-          <View
-            style={{
-              width: "100%",
-            }}
-          >
-            <FlatList
-              scrollEnabled={false}
-              contentContainerStyle={{
-                marginLeft: 16,
-                alignSelf: "center",
-              }}
-              numColumns={2}
-              showsHorizontalScrollIndicator={false}
-              data={list}
-              keyExtractor={(item) => item}
-              renderItem={({ item }) => <Check title={item} />}
-            />
-          </View>
-          {/* //////////////////////////////////////////////////////// */}
-          <Text
-            style={{
-              fontSize: 16,
-              fontWeight: "bold",
-              marginVertical: 5,
+              marginVertical: 11,
               color: "#333",
             }}
           >
@@ -225,7 +121,7 @@ function TripDetailScreen({ navigation, route }) {
       </ScrollView>
       <View style={styles.booking_container}>
         <View style={styles.price_container}>
-          <Text style={styles.price_text}>799$</Text>
+          <Text style={styles.price_text}>{trip?.price}$</Text>
         </View>
 
         <View style={styles.booking_btn_container}>
@@ -244,6 +140,7 @@ function TripDetailScreen({ navigation, route }) {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 0,
+    backgroundColor: "#FFF",
   },
   image: {
     width: "100%",
@@ -297,10 +194,10 @@ const styles = StyleSheet.create({
     left: 0,
   },
   price_container: {
-    width: "25%",
+    width: "30%",
   },
   price_text: {
-    fontSize: 27,
+    fontSize: 23,
     fontWeight: "bold",
   },
   booking_btn_container: {
