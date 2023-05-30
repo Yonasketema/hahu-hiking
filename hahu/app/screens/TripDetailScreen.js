@@ -17,11 +17,11 @@ import apiClient from "../service/api-client";
 function TripDetailScreen({ navigation, route }) {
   const [trip, setTrip] = useState();
 
-  const { id } = route.params;
+  const { url } = route.params;
 
   useEffect(() => {
     apiClient
-      .get(`/api/trips/${id}`)
+      .get(`/api/${url}`)
       .then((res) => setTrip(res.data))
       .catch((err) => console.log("Error fetching trip_detail", err));
   }, []);

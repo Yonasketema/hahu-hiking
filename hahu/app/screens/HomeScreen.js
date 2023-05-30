@@ -50,6 +50,11 @@ function HomeScreen({ navigation }) {
               subTitle={item.subTitle}
               imgurl={item.image_uri}
               rating={"?"}
+              onPress={() =>
+                navigation.navigate(routes.TRIP_DETAIL, {
+                  url: `hikings/${item.id}`,
+                })
+              }
             />
           )}
         />
@@ -70,7 +75,7 @@ function HomeScreen({ navigation }) {
               rating={"?"}
               onPress={() =>
                 navigation.navigate(routes.TRIP_DETAIL, {
-                  id: item.id,
+                  url: `trips/${item.id}`,
                 })
               }
             />
