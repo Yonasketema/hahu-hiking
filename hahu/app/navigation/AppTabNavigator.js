@@ -6,6 +6,7 @@ import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import TripNavigator from "./TripNavigator";
+import routes from "./routes";
 
 const Tab = createBottomTabNavigator();
 
@@ -29,7 +30,10 @@ const AppTabNavigator = () => {
           ),
           tabBarStyle: ((route) => {
             const routeName = getFocusedRouteNameFromRoute(route) ?? "";
-            if (routeName === "TripDetail" || routeName === "bookingDetail") {
+            if (
+              routeName === routes.TRIP_DETAIL ||
+              routeName === routes.BOOKING_DETAIL
+            ) {
               return { display: "none" };
             }
             return;

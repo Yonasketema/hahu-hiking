@@ -23,7 +23,6 @@ const TripNavigator = () => {
         title: "",
         headerTransparent: true,
         headerShadowVisible: false,
-
         headerBackVisible: false,
         headerTitleAlign: "center",
 
@@ -60,6 +59,9 @@ const TripNavigator = () => {
       <Stack.Screen
         name={routes.BOOKING_DETAIL}
         component={BookingDetailScreen}
+        options={{
+          title: "Detail Booking",
+        }}
       />
     </Stack.Navigator>
   );
