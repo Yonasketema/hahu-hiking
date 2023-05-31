@@ -6,18 +6,23 @@ import {
   TextInput,
   TouchableWithoutFeedback,
   View,
+  Alert,
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
 import Screen from "../components/Screen";
 import ShowCard from "../components/ShowCard";
+import AppButton from "../components/Button";
+import apiClient from "../service/api-client";
 
 function BookingDetailScreen({ route }) {
-  const { trip } = route.params;
+  const { trip, url } = route.params;
 
   const [date, setDate] = useState(new Date());
   const [showCalander, setShowCalander] = useState(false);
   const [numberOfPeople, setNumberOfPeople] = useState(1);
+
+  console.log(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`);
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
@@ -71,6 +76,29 @@ function BookingDetailScreen({ route }) {
 
           <Text style={styles.price}>{trip.price * numberOfPeople}</Text>
         </View>
+
+        <AppButton
+          title={"book"}
+          onPress={() => {
+            apiClient
+              .post(`api/${url}/booking/`, {
+                number_of_people: numberOfPeople,
+                total_price: trip.price * numberOfPeople,
+                start_date: trip.start_date
+                  ? trip.start_date
+                  : `${date.getFullYear()}-${
+                      date.getMonth() + 1
+                    }-${date.getDate()}`,
+              })
+              .then((res) => {
+                Alert.alert(
+                  "booking confirmation",
+                  "Thanks for booking with us and we hope you’ll visit us again!"
+                );
+              })
+              .catch((err) => console.log("ERROR Booking ", err));
+          }}
+        />
       </View>
     </Screen>
   );
@@ -126,7 +154,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 33,
+    marginVertical: 33,
   },
   price_title: {
     fontSize: 19,
