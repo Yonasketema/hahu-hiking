@@ -1,17 +1,29 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import Screen from "../components/Screen";
+import { StyleSheet } from "react-native";
 
-function BookingDetailScreen({}) {
+import Screen from "../components/Screen";
+import ShowCard from "../components/ShowCard";
+
+function BookingDetailScreen({ route }) {
+  const { trip } = route.params;
+
   return (
     <Screen style={styles.container}>
-      <View>
-        <Text>Detail Booking</Text>
-      </View>
+      <ShowCard
+        title={trip.title}
+        image_uri={trip.image_uri}
+        location={"ethiopia"}
+        borderStyle="dashed"
+      />
     </Screen>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#eeddff",
+    paddingTop: 45,
+  },
+});
 
 export default BookingDetailScreen;
