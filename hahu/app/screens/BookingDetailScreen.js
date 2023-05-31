@@ -17,6 +17,7 @@ function BookingDetailScreen({ route }) {
 
   const [date, setDate] = useState(new Date());
   const [showCalander, setShowCalander] = useState(false);
+  const [numberOfPeople, setNumberOfPeople] = useState(1);
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
@@ -60,8 +61,15 @@ function BookingDetailScreen({ route }) {
           <TextInput
             style={styles.number_input}
             keyboardType={"numeric"}
-            value="1"
+            value={numberOfPeople.toString()}
+            onChangeText={(number) => setNumberOfPeople(number)}
           />
+        </View>
+
+        <View style={styles.price_container}>
+          <Text style={styles.price_title}>Total Price :</Text>
+
+          <Text style={styles.price}>{trip.price * numberOfPeople}</Text>
         </View>
       </View>
     </Screen>
@@ -113,6 +121,22 @@ const styles = StyleSheet.create({
   },
   date_text: {
     fontSize: 17,
+  },
+  price_container: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 33,
+  },
+  price_title: {
+    fontSize: 19,
+    fontWeight: "500",
+    color: "#555",
+  },
+  price: {
+    fontSize: 31,
+    fontWeight: "500",
+    color: "#eedd11",
   },
 });
 
