@@ -56,7 +56,6 @@ function TripDetailScreen({ navigation, route }) {
           </View>
         </View>
 
-        {/* des */}
         <View
           style={{
             marginVertical: 7,
@@ -127,7 +126,9 @@ function TripDetailScreen({ navigation, route }) {
         <View style={styles.booking_btn_container}>
           <AppButton
             title="Book Now"
-            onPress={() => navigation.navigate(routes.BOOKING_DETAIL)}
+            onPress={() =>
+              navigation.navigate(routes.BOOKING_DETAIL, { trip, url })
+            }
           >
             <AntDesign name="arrowright" size={21} color="#fff" />
           </AppButton>
