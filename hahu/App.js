@@ -19,12 +19,10 @@ export default function App() {
 
     tokens = JSON.parse(tokens);
 
+    apiClient.defaults.headers["Authorization"] = `JWT ${tokens.access}`;
+
     apiClient
-      .get("/auth/users/me/", {
-        headers: {
-          Authorization: `JWT ${tokens.access}`,
-        },
-      })
+      .get("/auth/users/me/")
       .then((res) => {
         setUser({ login: true, ...res.data });
       })
