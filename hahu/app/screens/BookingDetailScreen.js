@@ -22,8 +22,6 @@ function BookingDetailScreen({ route }) {
   const [showCalander, setShowCalander] = useState(false);
   const [numberOfPeople, setNumberOfPeople] = useState(1);
 
-  console.log(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`);
-
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
     setShowCalander(false);
