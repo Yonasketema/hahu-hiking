@@ -4,4 +4,5 @@ export default Object.freeze({
   HOME: "Home",
   TRIP_DETAIL: "TripDetail",
   BOOKING_DETAIL: "BookingDetail",
+  INTRO: "Intro",
 });
