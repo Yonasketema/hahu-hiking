@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 
 import AppButton from "../components/Button";
 import AppTextInput from "../components/AppTextInput";
@@ -11,6 +11,7 @@ import useAuth from "../hook/useAuth";
 function LoginScreen() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const { setUser, user } = useAuth();
 
@@ -39,17 +40,28 @@ function LoginScreen() {
             />
           </View>
         </View>
-        <AppButton
-          title="Login"
-          onPress={() => {
-            login(username, password)
-              .then((res) => {
-                authStorage.storeTokens(JSON.stringify(res.data));
-                setUser({ ...user, login: true });
-              })
-              .catch((err) => console.log("ERROR login", err.message));
-          }}
-        />
+        {loading ? (
+          <View style={{ marginVertical: 10 }}>
+            <ActivityIndicator animating={true} size="large" />
+          </View>
+        ) : (
+          <AppButton
+            title="Login"
+            onPress={() => {
+              setLoading(true);
+              login(username, password)
+                .then((res) => {
+                  authStorage.storeTokens(JSON.stringify(res.data));
+                  setUser({ ...user, login: true });
+                  setLoading(false);
+                })
+                .catch((err) => {
+                  setLoading(false);
+                  console.log("ERROR login", err.message);
+                });
+            }}
+          />
+        )}
       </View>
     </Screen>
   );
