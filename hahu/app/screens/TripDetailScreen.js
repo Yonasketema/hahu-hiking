@@ -95,20 +95,21 @@ function TripDetailScreen({ navigation, route }) {
               <Image
                 style={{ height: 60, width: 70, marginRight: 10 }}
                 source={{
-                  uri: "https://picsum.photos/200",
+                  uri: trip?.guide.image_uri,
                 }}
               ></Image>
             </View>
             <View>
               <Text
                 style={{
-                  fontSize: 14,
+                  fontSize: 15,
                   fontWeight: "500",
                   marginVertical: 5,
                   color: "#555",
+                  textTransform: "capitalize",
                 }}
               >
-                Guzo Adwa Hiking Group
+                {trip?.guide.name}
               </Text>
               <View style={{ flexDirection: "row", gap: 5 }}>
                 <AntDesign name="star" size={17} color="#ffcd3c" />
