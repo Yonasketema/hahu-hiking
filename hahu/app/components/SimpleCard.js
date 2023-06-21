@@ -2,7 +2,7 @@ import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { Octicons } from "@expo/vector-icons";
 
-function ShowCard({ image_uri, title, location, borderStyle = "solid" }) {
+function SimpleCard({ image_uri, title, location, borderStyle = "dashed" }) {
   return (
     <View
       style={[
@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ShowCard;
+export default SimpleCard;

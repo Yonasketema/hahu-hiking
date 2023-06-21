@@ -14,6 +14,7 @@ import Screen from "../components/Screen";
 import ShowCard from "../components/ShowCard";
 import AppButton from "../components/Button";
 import apiClient from "../service/api-client";
+import SimpleCard from "../components/SimpleCard";
 
 function BookingDetailScreen({ route }) {
   const { trip, url } = route.params;
@@ -34,13 +35,11 @@ function BookingDetailScreen({ route }) {
 
   return (
     <Screen style={styles.container}>
-      <ShowCard
+      <SimpleCard
         title={trip.title}
+        location={trip.location}
         image_uri={trip.image_uri}
-        location={"ethiopia"}
-        borderStyle="dashed"
       />
-
       <View style={styles.booking_info_container}>
         {showCalander && (
           <DateTimePicker
@@ -104,7 +103,6 @@ function BookingDetailScreen({ route }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#eeddff",
     paddingTop: 45,
     paddingHorizontal: 9,
   },

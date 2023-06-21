@@ -3,7 +3,7 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 
 import Screen from "../components/Screen";
 import apiClient from "../service/api-client";
-import ShowCard from "../components/ShowCard";
+import SimpleCard from "../components/SimpleCard";
 
 function MyTripScreen() {
   const [myTrip, setMyTrip] = useState();
@@ -33,7 +33,7 @@ function MyTripScreen() {
         data={myTrip}
         keyExtractor={(item) => item.id}
         renderItem={({ item: { trip } }) => (
-          <ShowCard
+          <SimpleCard
             title={trip.title}
             image_uri={trip.image_uri}
             location={"ethiopa"}
