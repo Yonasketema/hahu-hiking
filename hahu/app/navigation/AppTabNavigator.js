@@ -14,7 +14,7 @@ const AppTabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveBackgroundColor: "tomato",
+        tabBarActiveBackgroundColor: "#1A385A",
         tabBarActiveTintColor: "#fff",
         tabBarInactiveBackgroundColor: "#eee",
         tabBarInactiveTintColor: "#000",

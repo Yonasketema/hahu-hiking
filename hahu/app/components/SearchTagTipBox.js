@@ -10,22 +10,22 @@ function SearchTagTipBox(props) {
     <View style={styles.container}>
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         <View style={styles.box_catagory}>
-          <Foundation name="mountains" size={27} color="#3777" />
+          <Foundation name="mountains" size={27} color="#9BC1EE" />
           <Text style={styles.text_catagory}>mountains</Text>
         </View>
 
         <View style={styles.box_catagory}>
-          <MaterialCommunityIcons name="forest" size={27} color="#3777" />
+          <MaterialCommunityIcons name="forest" size={27} color="#9BC1EE" />
           <Text style={styles.text_catagory}>forest</Text>
         </View>
 
         <View style={styles.box_catagory}>
-          <MaterialIcons name="location-city" size={27} color="#3777" />
+          <MaterialIcons name="location-city" size={27} color="#9BC1EE" />
           <Text style={styles.text_catagory}>Citys</Text>
         </View>
 
         <View style={styles.box_catagory}>
-          <MaterialIcons name="location-city" size={27} color="#3777" />
+          <MaterialIcons name="location-city" size={27} color="#9BC1EE" />
           <Text style={styles.text_catagory}>Citys</Text>
         </View>
       </ScrollView>
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "600",
     textTransform: "capitalize",
-    color: "#444",
+    color: "#0B4C84",
   },
 });
 

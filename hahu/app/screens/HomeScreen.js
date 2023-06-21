@@ -47,9 +47,10 @@ function HomeScreen({ navigation }) {
           renderItem={({ item }) => (
             <Card
               title={item.title}
-              subTitle={item.subTitle}
+              subTitle={item.price}
               imgurl={item.image_uri}
-              rating={"?"}
+              guide={item.guide.name}
+              date={item.start_date}
               onPress={() =>
                 navigation.navigate(routes.TRIP_DETAIL, {
                   url: `hikings/${item.id}`,
@@ -93,6 +94,7 @@ const styles = StyleSheet.create({
     textTransform: "capitalize",
     marginLeft: 16,
     marginVertical: 10,
+    color: "#1A385A",
   },
   trip_container: {
     flexDirection: "row",

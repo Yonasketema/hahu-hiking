@@ -25,10 +25,10 @@ function SmallCard({ imgurl, title, subTitle, rating, onPress }) {
           <Text style={styles.subTitle}>{subTitle}</Text>
         </View>
 
-        <View style={styles.ratebox}>
+        {/* <View style={styles.ratebox}>
           <AntDesign name="star" size={12} color="#ffcd3c" />
           <Text style={styles.rate_text}>{rating}</Text>
-        </View>
+        </View> */}
       </View>
     </TouchableWithoutFeedback>
   );

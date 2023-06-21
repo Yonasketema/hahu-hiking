@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-function Card({ imgurl, title, subTitle, rating, onPress }) {
+function Card({ imgurl, title, subTitle, guide, date, onPress }) {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.card}>
@@ -21,15 +21,16 @@ function Card({ imgurl, title, subTitle, rating, onPress }) {
         <View style={styles.description}>
           <Text style={styles.titleText}>{title}</Text>
           <View style={styles.info}>
-            <Text style={styles.info_title}>Addis Hiking</Text>
-            <Text style={styles.info_subTitle}>{subTitle}</Text>
+            <Text style={styles.info_title}>{guide}</Text>
+
+            <Text style={styles.info_subTitle}>{subTitle}$</Text>
           </View>
         </View>
 
-        <View style={styles.ratebox}>
+        {/* <View style={styles.ratebox}>
           <AntDesign name="star" size={17} color="#ffcd3c" />
           <Text style={styles.rate_text}>{rating}</Text>
-        </View>
+        </View> */}
       </View>
     </TouchableWithoutFeedback>
   );
