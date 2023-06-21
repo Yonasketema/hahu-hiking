@@ -11,7 +11,6 @@ import {
 import DateTimePicker from "@react-native-community/datetimepicker";
 
 import Screen from "../components/Screen";
-import ShowCard from "../components/ShowCard";
 import AppButton from "../components/Button";
 import apiClient from "../service/api-client";
 import SimpleCard from "../components/SimpleCard";
