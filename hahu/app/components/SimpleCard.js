@@ -21,7 +21,9 @@ function SimpleCard({ image_uri, title, location, borderStyle = "dashed" }) {
         />
       </View>
       <View>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title} numberOfLines={3}>
+          {title}
+        </Text>
         <View style={styles.location_container}>
           <Octicons name="location" size={15} color="#555" />
           <Text style={styles.location_text}>{location}</Text>
@@ -51,6 +53,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     marginVertical: 5,
     color: "#555",
+    width: 150,
   },
 
   location_container: {
